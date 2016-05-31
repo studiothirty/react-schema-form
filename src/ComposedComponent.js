@@ -39,8 +39,15 @@ export default ComposedComponent => class extends React.Component {
             value = e.target.checked;
         } else if(this.props.form.schema.type === 'date' || this.props.form.schema.type === 'array') {
             value = e;
-        } else { // string
-            value = e.target.value;
+        } else {
+            // string
+            if(this.props.form.schema.format == 'date'){
+              var date = new Date(e)
+              value = date.getFullYear() + '-' + (parseInt(date.getMonth())+1) + '-' + date.getDate()
+            }
+            else {
+              value = e.target.value
+            }
         }
         //console.log('onChangeValidate this.props.form, value', this.props.form, value);
         let validationResult = utils.validate(this.props.form, value);
