@@ -11,9 +11,16 @@ class Select extends React.Component {
     constructor(props) {
         super(props);
         this.onSelected = this.onSelected.bind(this);
-        this.state = {
-            currentValue: this.props.form.titleMap != null ? this.props.form.titleMap[0].value : ""
-        };
+        if(this.props.value){
+          this.state = {
+              currentValue: this.props.value
+          }
+        }
+        else {
+          this.state = {
+              currentValue: this.props.form.titleMap != null ? this.props.form.titleMap[0].value : ""
+          }
+        }
     }
 
     onSelected(event, selectedIndex, menuItem) {
@@ -26,6 +33,7 @@ class Select extends React.Component {
     }
 
     render() {
+        console.log(this.props.form.titleMap)
         const menuItems = this.props.form.titleMap.map((item, idx) => (
             <MenuItem key={idx}
                       primaryText={item.name}
