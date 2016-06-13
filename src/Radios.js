@@ -3,8 +3,8 @@ import utils from './utils';
 import classNames from 'classnames';
 import ComposedComponent from './ComposedComponent';
 
-const RadioButton = require('material-ui/lib/radio-button');
-const RadioButtonGroup = require('material-ui/lib/radio-button-group');
+const RadioButton = require('material-ui/RadioButton');
+const RadioButtonGroup = require('material-ui/RadioButtonGroup');
 
 class Radios extends React.Component {
 
