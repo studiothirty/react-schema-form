@@ -2,10 +2,10 @@
  * Created by steve on 22/12/15.
  */
 import React from 'react';
-var utils = require('./utils');
-var classNames = require('classnames');
+import utils from './utils';
+import classNames from 'classnames';
 import ComposedComponent from './ComposedComponent';
-const DatePicker = require('material-ui/DatePicker');
+import DatePicker from 'material-ui/DatePicker';
 
 /**
  * There is no default number picker as part of Material-UI.

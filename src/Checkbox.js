@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ComposedComponent from './ComposedComponent';
-const Switch = require('material-ui/Checkbox');
+import Switch from 'material-ui/Checkbox';
 
 class Checkbox extends React.Component {
     render() {

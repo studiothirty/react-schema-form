@@ -4,7 +4,7 @@
 import React from 'react';
 import ComposedComponent from './ComposedComponent';
 import MenuItem from 'material-ui/MenuItem';
-const SelectField = require('material-ui/SelectField');
+import SelectField from 'material-ui/SelectField';
 
 class Select extends React.Component {
 

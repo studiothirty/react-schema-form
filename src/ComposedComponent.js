@@ -1,6 +1,6 @@
 //var React = require('react');
 import React from 'react';
-var utils = require('./utils');
+import utils from './utils';
 
 export default ComposedComponent => class extends React.Component {
 
@@ -87,6 +87,6 @@ export default ComposedComponent => class extends React.Component {
     }
 
     render() {
-        return <ComposedComponent {...this.props} {...this.state} onChangeValidate={this.onChangeValidate}/>;
+        return (<ComposedComponent {...this.props} {...this.state} onChangeValidate={this.onChangeValidate}/>)
     }
 };
