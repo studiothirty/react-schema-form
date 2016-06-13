@@ -2,9 +2,7 @@ import React from 'react';
 import utils from './utils';
 import classNames from 'classnames';
 import ComposedComponent from './ComposedComponent';
-
-const RadioButton = require('material-ui/RadioButton');
-const RadioButtonGroup = require('material-ui/RadioButtonGroup');
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 class Radios extends React.Component {
 
