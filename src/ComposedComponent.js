@@ -22,6 +22,10 @@ export default ComposedComponent => class extends React.Component {
         }
     }
 
+    static contextTypes = {
+        muiTheme: React.PropTypes.object.isRequired
+    }
+
     /**
      * Called when <input> value changes.
      * @param e The input element, or something.

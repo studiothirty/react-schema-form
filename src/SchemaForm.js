@@ -17,6 +17,15 @@ import _ from 'lodash';
 
 class SchemaForm extends React.Component {
 
+    static contextTypes = {
+        muiTheme: React.PropTypes.object.isRequired
+    }
+
+    constructor(props) {
+        super(props);
+        this.onChange = this.onChange.bind(this);
+    }
+
     mapper = {
         "number": Number,
         "text": Text,
@@ -30,11 +39,6 @@ class SchemaForm extends React.Component {
         "array": Array,
         "fieldset": FieldSet
     };
-
-    constructor(props) {
-        super(props);
-        this.onChange = this.onChange.bind(this);
-    }
 
     onChange(key, val) {
         //console.log('SchemaForm.onChange', key, val);
@@ -51,7 +55,10 @@ class SchemaForm extends React.Component {
         if(form.condition && eval(form.condition) === false) {
           return null;
         }
-        return <Field model={model} form={form} key={index} onChange={onChange} mapper={mapper} builder={this.builder}/>
+
+        return (
+          <Field model={model} form={form} key={index} onChange={onChange} mapper={mapper} builder={this.builder}/>
+        )
     }
 
     render() {
@@ -66,7 +73,9 @@ class SchemaForm extends React.Component {
         }.bind(this));
 
         return (
-            <div style={{width: '100%'}} className='SchemaForm'>{forms}</div>
+            <div style={{width: '100%'}} className='SchemaForm'>
+              {forms}
+            </div>
         );
     }
 }
