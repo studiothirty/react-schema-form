@@ -34,7 +34,7 @@ class DateElement extends React.Component {
                 <DatePicker
                     mode={"landscape"}
                     autoOk={true}
-                    defaultValue={this.formatDate(this.props.value)}
+                    value={this.formatDate(this.props.value)}
                     formatDate= {this.formatDate}
                     hintText={this.props.form.title}
                     onChange={this.onDatePicked}
