@@ -23,10 +23,35 @@ class DateElement extends React.Component {
         this.props.onChangeValidate(date);
     }
 
-    formatDate = function(e) {
-      var dateForString = new Date(e)
-      return dateForString.getDate() + '/'  + (parseInt(dateForString.getMonth())+1) + '/' + dateForString.getFullYear()
-    }
+    formatDate = function (e) {
+      var dateForString
+      if(e instanceof Date){
+        dateForString = e
+      }
+      else{
+        dateForString = new Date(e)
+      }
+      if(e){
+        return dateForString.getDate() + '/' + (parseInt(dateForString.getMonth()) + 1) + '/' + dateForString.getFullYear();
+      }
+      else {
+        return ''
+      }
+    };
+
+    convertDate = function (e) {
+      var dateForString
+      if(e instanceof Date){
+        return e
+      }
+      else if(e){
+        return new Date(e)
+      }
+      else{
+        return null
+      }
+
+    };
 
     render() {
         return (
@@ -34,8 +59,8 @@ class DateElement extends React.Component {
                 <DatePicker
                     mode={"landscape"}
                     autoOk={true}
-                    value={this.formatDate(this.props.value)}
-                    formatDate= {this.formatDate}
+                    value={this.convertDate(this.props.value)}
+                    formatDate={this.formatDate}
                     hintText={this.props.form.title}
                     onChange={this.onDatePicked}
                     onShow={null}
