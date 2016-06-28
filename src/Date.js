@@ -24,31 +24,41 @@ class DateElement extends React.Component {
     }
 
     formatDate = function (e) {
-      var dateForString
-      if(e instanceof Date){
+      var dateForString;
+      if (e instanceof Date) {
         dateForString = e
+      } else {
+        dateForString = new Date(e);
       }
-      else{
-        dateForString = new Date(e)
-      }
-      if(e){
-        return dateForString.getDate() + '/' + (parseInt(dateForString.getMonth()) + 1) + '/' + dateForString.getFullYear();
-      }
-      else {
+      if (e) {
+        console.log(dateForString)
+        return dateForString.getDate() + '/' + (parseInt(dateForString.getMonth()) + 1) + '/' + dateForString.getFullYear()
+      } else {
+        console.log('none')
         return ''
       }
     };
 
     convertDate = function (e) {
-      var dateForString
-      if(e instanceof Date){
-        return e
-      }
-      else if(e){
-        return new Date(e)
-      }
-      else{
-        return null
+      var dateForString;
+      console.log('convert date')
+      console.log(e)
+      if (e instanceof Date) {
+        console.log('is date')
+        console.log(e)
+        return e;
+      } else if (e) {
+        console.log(e)
+        console.log('so')
+        var dates = e.split('-')
+        var year = dates[0]
+        var month = ("0" + dates[1]).slice(-2)
+        var day = ("0" + dates[2]).slice(-2)
+
+        return new Date(year + '-' + month + '-' + day)
+      } else {
+        console.log('nope')
+        return null;
       }
 
     };
