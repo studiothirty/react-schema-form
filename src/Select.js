@@ -28,8 +28,13 @@ class Select extends React.Component {
         this.setState({
             currentValue: menuItem
         });
-        event.target.value = menuItem;
-        this.props.onChangeValidate(event);
+
+        var a = {
+          target: {
+            value: menuItem
+          }
+        };
+        this.props.onChangeValidate(a);
     }
 
     render() {
